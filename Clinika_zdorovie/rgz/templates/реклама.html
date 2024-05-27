@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Клиника "Здоровье"</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .text-outline {
+            text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+        }
+    </style>
+</head>
+<body>
+    <header class="bg-primary text-white py-3">
+    <div class="container d-flex justify-content-between align-items-center">
+        <a href="{{ url_for('reclama') }}" class="text-white text-decoration-none">
+            <h1 class="mb-0 text-outline">Клиника "Здоровье"</h1>
+        </a>
+    </div>
+</header>
+
+
+    <div class="container my-5">
+        <img src="https://icon-icons.com/icons2/2194/PNG/512/clinic_icon_133859.png" alt="Логотип Клиники Здоровье" class="d-block mx-auto mb-4" style="width: 150px;">
+        <h1 class="text-center mb-4">Клиника "Здоровье"</h1>
+        <p class="text-center">Мы заботимся о вашем здоровье с 1995 года!</p>
+        <p class="text-center">Наша клиника предоставляет широкий спектр медицинских услуг, от профилактики и диагностики до лечения различных заболеваний. Наши высококвалифицированные врачи и современное оборудование позволяют нам обеспечивать качественное и доступное медицинское обслуживание.</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru" data-bs-theme="auto">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Редактирование данных пациента</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <style>
+        header h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <header class="bg-primary text-white py-3">
+        <div class="container d-flex justify-content-between align-items-center">
+            <h1 class="mb-0">Клиника "Здоровье"</h1>
+            <p class="mb-0">Врач: {{ doctor_name }}</p>
+        </div>
+    </header>
+
+    <div class="container my-5">
+        <h1>Редактирование данных пациента</h1>
+
+        <form method="post" action="{{ url_for('changeinfo') }}" class="row g-3">
+            <input type="hidden" name="id" value="{{ patient.id }}">
+            <div class="col-md-6">
+                <label for="name" class="form-label">Имя:</label>
+                <input type="text" class="form-control" id="name" name="name" value="{{ patient.name }}" required>
+            </div>
+            <div class="col-md-6">
+                <label for="gender" class="form-label">Пол:</label>
+                <input type="text" class="form-control" id="gender" name="gender" value="{{ patient.gender }}" required>
+            </div>
+            <div class="col-md-6">
+                <label for="location" class="form-label">Место жительства:</label>
+                <input type="text" class="form-control" id="location" name="location" value="{{ patient.location }}" required>
+            </div>
+            <div class="col-md-6">
+                <label for="diagnoze" class="form-label">Диагноз:</label>
+                <input type="text" class="form-control" id="diagnoze" name="diagnoze" value="{{ patient.diagnoze }}" required>
+            </div>
+            <div class="col-md-6">
+                <label for="phone_numbers" class="form-label">Номер телефона:</label>
+                <input type="text" class="form-control" id="phone_numbers" name="phone_numbers" value="{{ patient.phone_numbers }}" required>
+            </div>
+            <div class="col-md-6">
+                <label for="pasport" class="form-label">Паспортные данные:</label>
+                <input type="text" class="form-control" id="pasport" name="pasport" value="{{ patient.pasport }}" required>
+            </div>
+            <div class="col-md-6">
+                <label for="snils" class="form-label">СНИЛС:</label>
+                <input type="text" class="form-control" id="snils" name="snils" value="{{ patient.snils }}" required>
+            </div>
+            <div class="col-md-6">
+                <label for="age" class="form-label">Возраст:</label>
+                <input type="number" class="form-control" id="age" name="age" value="{{ patient.age }}" required>
+            </div>
+            <div class="col-12">
+                <button type="submit" class="btn btn-primary">Сохранить изменения</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

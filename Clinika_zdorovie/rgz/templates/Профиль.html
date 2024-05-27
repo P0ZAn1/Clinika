@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru" data-bs-theme="auto">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Профиль врача</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .profile-photo {
+            max-width: 300px;
+            height: auto;
+            border-radius: 50%;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+            border: 4px solid #007bff;
+        }
+        .profile-photo:hover {
+            transform: scale(1.05);
+        }
+        .card {
+            border: 2px solid #007bff;
+            border-radius: 10px;
+            padding: 20px;
+        }
+        .change-password-btn {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+        .change-password-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <header class="bg-primary text-white py-4">
+    <div class="container d-flex justify-content-between align-items-center">
+        <h1 class="mb-0 text-outline">Клиника "Здоровье"</h1>
+        <div>
+            <a href="{{ url_for('xyq') }}" class="btn btn-light btn-sm">Главная</a>
+            <a href="{{ url_for('exit') }}" class="btn btn-light btn-sm">Выйти</a>
+            <p class="mb-0 text-outline">Врач: {{ doctor.name }}</p>
+        </div>
+    </div>
+</header>
+
+    <div class="container my-5">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <img src="{{ doctor.photo_doctor }}" alt="Фото врача" class="profile-photo">
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <h2 class="text-outline">{{ doctor.name }}</h2>
+                    <p class="text-outline">Специальность: {{ doctor.speciality }}</p>
+                    <p class="text-outline">Стаж: {{ doctor.experience }} лет</p>
+                    <p class="text-outline">Количество пациентов: {{ patient_count }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-start mt-4">
+            <div class="col-auto">
+                <a href="{{ url_for('change_password', doctor_id=doctor.id) }}" class="change-password-btn">Изменить пароль</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
